@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Women's Day 🌸</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:#0f0a0a;font-family:'Jost',sans-serif;color:#f5ede6;overflow-x:hidden;cursor:none;}
+.cursor{position:fixed;width:8px;height:8px;background:#e8a0a0;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width 0.3s,height 0.3s;}
+.cursor-ring{position:fixed;width:36px;height:36px;border:1px solid rgba(232,160,160,0.4);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);}
+#petals{position:fixed;inset:0;pointer-events:none;z-index:10;}
+#hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px 24px;position:relative;overflow:hidden;}
+.bg-glow{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 60%,rgba(180,80,80,0.18) 0%,transparent 60%),radial-gradient(ellipse at 20% 20%,rgba(200,140,100,0.1) 0%,transparent 50%),radial-gradient(ellipse at 80% 80%,rgba(140,80,120,0.12) 0%,transparent 50%);}
+.date-tag{font-family:'Jost',sans-serif;font-weight:300;font-size:11px;letter-spacing:6px;text-transform:uppercase;color:rgba(232,180,160,0.6);margin-bottom:32px;opacity:0;animation:fadeUp 1s ease 0.4s forwards;}
+.hero-word{font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:clamp(72px,16vw,160px);line-height:0.9;color:#f0ddd5;letter-spacing:-2px;opacity:0;animation:fadeUp 1.2s ease 0.7s forwards;text-shadow:0 0 120px rgba(220,140,120,0.25);}
+.hero-word em{font-style:normal;background:linear-gradient(135deg,#e8c4a0,#d4829a,#c87090);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-sub{margin-top:28px;font-size:clamp(14px,3vw,17px);font-weight:300;color:rgba(240,220,210,0.6);letter-spacing:2px;opacity:0;animation:fadeUp 1s ease 1.2s forwards;}
+.divider{width:40px;height:1px;background:linear-gradient(90deg,transparent,rgba(220,160,140,0.5),transparent);margin:32px auto;opacity:0;animation:fadeUp 1s ease 1.5s forwards;}
+.scroll-hint{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:rgba(240,200,190,0.35);opacity:0;animation:fadeUp 1s ease 2s forwards;}
+.scroll-hint::after{content:'';display:block;width:1px;height:48px;background:linear-gradient(to bottom,rgba(220,160,140,0.4),transparent);margin:14px auto 0;animation:pulseL 2s ease-in-out infinite;}
+.truths{padding:120px 24px;max-width:700px;margin:0 auto;position:relative;}
+.truth{margin-bottom:100px;opacity:0;transform:translateY(40px);transition:opacity 0.9s ease,transform 0.9s ease;}
+.truth.visible{opacity:1;transform:translateY(0);}
+.truth-number{font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:4px;color:rgba(220,160,140,0.35);margin-bottom:16px;display:block;}
+.truth-text{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,5vw,44px);font-weight:300;line-height:1.4;color:#f0ddd5;}
+.truth-text em{font-style:italic;color:#d4a0b0;}
+.truth-small{margin-top:14px;font-size:13px;font-weight:300;letter-spacing:1px;color:rgba(240,210,200,0.45);line-height:1.8;}
+.bloom{padding:100px 24px;text-align:center;position:relative;overflow:hidden;}
+.bloom::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(180,90,100,0.1) 0%,transparent 70%);}
+.bloom-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,8vw,80px);font-weight:300;font-style:italic;color:#f0ddd5;line-height:1.3;opacity:0;transform:translateY(30px);transition:opacity 1s ease,transform 1s ease;position:relative;z-index:2;}
+.bloom-title.visible{opacity:1;transform:translateY(0);}
+.bloom-line{font-size:clamp(13px,2.5vw,16px);font-weight:300;letter-spacing:3px;color:rgba(240,200,185,0.5);margin-top:24px;opacity:0;transform:translateY(20px);transition:opacity 1s ease 0.3s,transform 1s ease 0.3s;position:relative;z-index:2;}
+.bloom-line.visible{opacity:1;transform:translateY(0);}
+.final{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 24px;position:relative;overflow:hidden;}
+.final::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,rgba(190,100,110,0.15) 0%,transparent 60%),radial-gradient(ellipse at 30% 80%,rgba(170,100,140,0.1) 0%,transparent 50%);}
+.final-label{font-size:11px;letter-spacing:6px;text-transform:uppercase;color:rgba(220,160,150,0.5);margin-bottom:28px;opacity:0;transform:translateY(20px);transition:opacity 0.8s ease,transform 0.8s ease;position:relative;z-index:2;}
+.final-label.visible{opacity:1;transform:translateY(0);}
+.final-big{font-family:'Cormorant Garamond',serif;font-size:clamp(48px,11vw,110px);font-weight:300;line-height:1;color:#f0ddd5;opacity:0;transform:translateY(24px);transition:opacity 1s ease 0.2s,transform 1s ease 0.2s;position:relative;z-index:2;}
+.final-big span{display:block;font-style:italic;background:linear-gradient(135deg,#e8c4a0,#d48090);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.final-big.visible{opacity:1;transform:translateY(0);}
+.final-msg{margin-top:28px;font-size:clamp(14px,3vw,16px);font-weight:300;color:rgba(240,210,200,0.55);letter-spacing:1.5px;line-height:2;max-width:420px;opacity:0;transform:translateY(20px);transition:opacity 1s ease 0.4s,transform 1s ease 0.4s;position:relative;z-index:2;}
+.final-msg.visible{opacity:1;transform:translateY(0);}
+.final-sig{margin-top:48px;font-family:'Cormorant Garamond',serif;font-size:22px;font-style:italic;color:rgba(220,170,160,0.6);opacity:0;transform:translateY(20px);transition:opacity 1s ease 0.6s,transform 1s ease 0.6s;position:relative;z-index:2;}
+.final-sig.visible{opacity:1;transform:translateY(0);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulseL{0%,100%{opacity:1}50%{opacity:0.2}}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<canvas id="petals"></canvas>
+
+<section id="hero">
+  <div class="bg-glow"></div>
+  <p class="date-tag">March 8 · International Women's Day</p>
+  <h1 class="hero-word">She<br><em>is.</em></h1>
+  <p class="hero-sub">— and that has always been enough —</p>
+  <div class="divider"></div>
+  <p class="scroll-hint">for every woman</p>
+</section>
+
+<div class="truths">
+  <div class="truth">
+    <span class="truth-number">01</span>
+    <p class="truth-text">She carried the world<br>in silence, and still<br><em>showed up smiling.</em></p>
+    <p class="truth-small">That is not weakness. That has always been extraordinary strength.</p>
+  </div>
+  <div class="truth">
+    <span class="truth-number">02</span>
+    <p class="truth-text">Every version of her —<br><em>soft, fierce, broken, whole</em> —<br>was always valid.</p>
+    <p class="truth-small">She never needed to earn the right to simply be herself.</p>
+  </div>
+  <div class="truth">
+    <span class="truth-number">03</span>
+    <p class="truth-text">She built things.<br>She healed things.<br><em>She held things together.</em></p>
+    <p class="truth-small">Often without anyone noticing. Often without asking for credit.</p>
+  </div>
+  <div class="truth">
+    <span class="truth-number">04</span>
+    <p class="truth-text">She is not too much.<br>She was never<br><em>too anything.</em></p>
+    <p class="truth-small">The world just wasn't always ready for someone as real as her.</p>
+  </div>
+</div>
+
+<section class="bloom">
+  <h2 class="bloom-title">Here's to<br><em>every woman</em><br>who ever bloomed<br>in the dark.</h2>
+  <p class="bloom-line">you were seen &nbsp;·&nbsp; you were felt &nbsp;·&nbsp; you mattered</p>
+</section>
+
+<section class="final">
+  <p class="final-label">with deep respect & love</p>
+  <h2 class="final-big">Happy<br><span>Women's Day.</span></h2>
+  <p class="final-msg">
+    To the mothers, daughters, sisters, friends.<br>
+    To the ones who fought quietly.<br>
+    To the ones still finding their voice.<br>
+    To every woman — everywhere.<br>
+    <em style="color:rgba(220,160,150,0.7);">This day belongs to you.</em>
+  </p>
+  <p class="final-sig">— with love 🌸</p>
+</section>
+
+<script>
+const cur=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+(function animRing(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing);})();
+
+const canvas=document.getElementById('petals'),ctx=canvas.getContext('2d');
+let W,H,petals=[];
+function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}
+resize();window.addEventListener('resize',resize);
+const pC=['rgba(220,150,160,','rgba(200,130,150,','rgba(240,180,170,','rgba(210,160,140,','rgba(230,170,180,'];
+function mkP(){return{x:Math.random()*W,y:-20,size:Math.random()*7+3,speedY:Math.random()*0.7+0.25,speedX:(Math.random()-0.5)*0.5,rot:Math.random()*Math.PI*2,rotS:(Math.random()-0.5)*0.025,opacity:Math.random()*0.45+0.1,color:pC[Math.floor(Math.random()*pC.length)],wobble:Math.random()*Math.PI*2,wobbleS:Math.random()*0.018+0.008};}
+for(let i=0;i<38;i++){const p=mkP();p.y=Math.random()*H;petals.push(p);}
+function drawP(p){ctx.save();ctx.globalAlpha=p.opacity;ctx.translate(p.x,p.y);ctx.rotate(p.rot);ctx.fillStyle=p.color+'0.9)';ctx.beginPath();ctx.ellipse(0,0,p.size,p.size*1.9,0,0,Math.PI*2);ctx.fill();ctx.restore();}
+(function anim(){ctx.clearRect(0,0,W,H);petals.forEach(p=>{p.wobble+=p.wobbleS;p.x+=p.speedX+Math.sin(p.wobble)*0.4;p.y+=p.speedY;p.rot+=p.rotS;if(p.y>H+20)Object.assign(p,mkP());drawP(p);});requestAnimationFrame(anim);})();
+
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:0.15});
+document.querySelectorAll('.truth,.bloom-title,.bloom-line,.final-label,.final-big,.final-msg,.final-sig').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
