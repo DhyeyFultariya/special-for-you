@@ -1,1 +1,1 @@
-https://dhyeyfultariya.github.io/colleague-birthday-card/
+https://dhyeyfultariya.github.io/special-for-you/
